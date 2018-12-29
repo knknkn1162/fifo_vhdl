@@ -11,7 +11,8 @@ MODULES=\
 	port1_ram \
 	sync_fifo \
 	fifo
-TESTS=
+TESTS=\
+	gray_counter
 OBJS=$(addsuffix .o, ${MODULES})
 TESTBENCHES=$(addsuffix _tb, ${TESTS})
 
