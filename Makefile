@@ -6,8 +6,10 @@ FLAGS=--work=${PROJECT_NAME} --workdir=${WORKDIR}/
 #TB_OPTION=--assert-level=error
 MODULES=\
 	counter \
+	gray_counter \
 	bicounter \
 	port1_ram \
+	sync_fifo \
 	fifo
 TESTS=
 OBJS=$(addsuffix .o, ${MODULES})
