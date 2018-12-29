@@ -2,7 +2,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity fifo is
+-- See http://zakii.la.coocan.jp/digital/17_sync_fifo.htm
+entity sync_fifo is
   generic(ADDR_WIDTH : natural; DATA_WIDTH : natural);
   port (
     clk, i_sclr : in std_logic;
@@ -15,7 +16,7 @@ entity fifo is
   );
 end entity;
 
-architecture behavior of fifo is
+architecture behavior of sync_fifo is
 
   component counter
     generic(N : natural; INIT : natural);
