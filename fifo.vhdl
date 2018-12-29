@@ -74,7 +74,7 @@ begin
     o_cnt => s_widx
   );
 
-  s_ren <= s_ren and (not s_empty);
+  s_ren <= i_ren and (not s_empty);
   counter_ridx : counter generic map(N=>ADDR_WIDTH, INIT=>0)
   port map (
     clk => clk, i_sclr => i_sclr,
