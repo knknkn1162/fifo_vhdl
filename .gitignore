@@ -1,0 +1,11 @@
+*
+!Makefile
+!*.*
+imem.qws
+imem.qpf
+*.txt
+*.o
+*.vcd
+work-obj93.cf
+!*/*
+!src
