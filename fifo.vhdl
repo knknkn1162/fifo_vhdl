@@ -12,7 +12,6 @@ entity fifo is
     o_rdata : out std_logic_vector(DATA_WIDTH-1 downto 0);
     o_full : out std_logic;
     o_empty : out std_logic
-    -- o_stop : out std_logic
   );
 end entity;
 
@@ -101,13 +100,4 @@ begin
   -- when reaches lower limit
   s_empty <= '1' when s_fifo_cnt = CONST_LOWER_LIMIT else '0';
   o_full <= s_full; o_empty <= s_empty;
-
-  -- process(clk)
-  -- begin
-  --   if rising_edge(clk) then
-  --     if (s_full and i_wen) = '1' or (s_empty and i_ren) = '1' then
-  --       o_stop <= '1';
-  --     end if;
-  --   end if;
-  -- end process;
 end  architecture;
