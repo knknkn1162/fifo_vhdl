@@ -1,6 +1,6 @@
 GHDLC=ghdl
-PROJECT_NAME=instr
-WORKDIR=..
+PROJECT_NAME=work
+WORKDIR=.
 WAVEDIR=${WORKDIR}/wave
 FLAGS=--work=${PROJECT_NAME} --workdir=${WORKDIR}/
 #TB_OPTION=--assert-level=error

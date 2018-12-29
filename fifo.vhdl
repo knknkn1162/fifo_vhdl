@@ -66,6 +66,7 @@ begin
 
   s_ridx <= (s_ridx_ex(ADDR_WIDTH) xor s_ridx_ex(ADDR_WIDTH-1)) & s_ridx_ex(ADDR_WIDTH-2 downto 0);
   s_widx <= (s_widx_ex(ADDR_WIDTH) xor s_widx_ex(ADDR_WIDTH-1)) & s_widx_ex(ADDR_WIDTH-2 downto 0);
+
   ram0 : port1_syncram generic map(ADDR_WIDTH=>ADDR_WIDTH, DATA_WIDTH=>DATA_WIDTH)
   port map (
     clk => clk, i_we => s_wen, i_re => s_ren,
@@ -74,9 +75,9 @@ begin
   );
 
   -- when reaches lower limit
-  s_full <= '1' when s_widx_ex = s_ridx_ex else '0';
+  s_full <= '1' when (s_widx_ex = s_ridx_ex) else '0';
   -- when reaches upper limit
-  s_empty <= '1' when s_widx_ex = ((not s_ridx_ex(ADDR_WIDTH downto ADDR_WIDTH-1)) & s_ridx_ex(ADDR_WIDTH-2 downto 0))  else '0';
+  s_empty <= '1' when (s_widx_ex = (not s_ridx_ex(ADDR_WIDTH downto ADDR_WIDTH-1)) & s_ridx_ex(ADDR_WIDTH-2 downto 0)) else '0';
 
   o_full <= s_full; o_empty <= s_empty;
 end  architecture;
